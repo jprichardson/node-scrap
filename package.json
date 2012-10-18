@@ -1,0 +1,43 @@
+{
+  "name": "scrap",
+  "version": "0.0.1",
+  "description": "A simple screen scraper module that uses jQuery style semantics.",
+  "homepage": [
+    ""
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jprichardson/node-scrap.git"
+  },
+  "keywords": [
+    "screen",
+    "scraping",
+    "scraper",
+    "jquery",
+    "harvesting",
+    "screen scraping",
+    "cheerio",
+    "request",
+    "http",
+    "html"
+  ],
+  "author": "JP Richardson <jprichardson@gmail.com>",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": ""
+    }
+  ],
+  "dependencies": {
+    "request": "*",
+    "cheerio": "*"
+  },
+  "devDependencies": {
+    "autoresolve": "0.0.3",
+    "buffet": "~0.4.6"
+  },
+  "main": "./lib/scrap.js",
+  "scripts": {
+    "test": "mocha test"
+  }
+}
