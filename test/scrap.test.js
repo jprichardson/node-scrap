@@ -22,7 +22,26 @@ describe('scrap', function () {
     server.close(done);
   })
 
-  describe('when it can reach the site', function () {
+  describe('> when it contains the html modifier pre parse function', function() {
+    it('should apply it before loading it into cheerio', function(done) {
+      scrap({
+        url: url + '/google_com.html', 
+        preParse: function(body, done) {
+          var newHtml = '<html><body>Hi</body></html>'
+          done(newHtml)
+        }
+      }, function(err, $, code, html, resp) {
+        F (err)
+        T ($('body').text() === 'Hi')
+        T (resp.statusCode === 200)
+        T (code === 200)
+        T (html.length > 0)
+        done()
+      })
+    })
+  })
+
+  describe('> when it can reach the site', function () {
     it('should retrieve the content', function (done) {
       scrap(url + '/google_com.html', function(err, $, code, html, resp){
         F (err)
@@ -35,7 +54,7 @@ describe('scrap', function () {
     })
   })
 
-  describe('when it cant find the page', function () {
+  describe('> when it cant find the page', function () {
     it('should return an error', function (done) {
       scrap(url + '/asdfasdfasdfasdfasfdsfsda', function(err, $, code, html, resp){
         T (err)
