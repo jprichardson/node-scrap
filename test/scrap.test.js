@@ -61,7 +61,7 @@ describe('scrap', function () {
         T (code === 404)
         T (resp.statusCode === 404)
         T (html.length > 0)
-        F ($)
+        T ($) //still set body for cheerio to access
         done()
       });
     })
